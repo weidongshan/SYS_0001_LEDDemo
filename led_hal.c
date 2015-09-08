@@ -63,6 +63,7 @@ static int led_ctrl(struct led_device_t* dev, int which, int status)
 
 static struct led_device_t led_dev = {
 	.common = {
+		.tag   = HARDWARE_DEVICE_TAG,
 		.close = led_close,
 	},
 	.led_open  = led_open,
@@ -82,6 +83,7 @@ static struct hw_module_methods_t led_module_methods = {
 };
 
 struct hw_module_t HAL_MODULE_INFO_SYM = {
+	.tag = HARDWARE_MODULE_TAG,
     .id = "led",
     .methods = &led_module_methods,
 };
